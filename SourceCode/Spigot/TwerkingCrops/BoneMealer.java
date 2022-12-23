@@ -285,6 +285,11 @@ public class BoneMealer {
         	break;
         
         case Pumpkin_Stem: //TODO If block is grown, connect stem & disable particles
+			particles = block.getData() != 86;
+        	if(particles) { updateRawData(block, true, 86); }
+        	else if(isSucces()) { growBlockFromStem(block);  particles = false; }
+        	else particles = true;
+        	break;
         case Melon_Stem:   
         	particles = block.getData() != 7;
         	if(particles) { updateRawData(block, true, 7); }
